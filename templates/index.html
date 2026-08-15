@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Digital Health Record System</title>
+
+    <link rel="stylesheet" href="{{ url_for('static',filename='style.css')}}">
+</head>
+
+<body>
+
+    <header>
+        <h2>HealthRecord</h2>
+
+        <nav>
+            <a href="{{ url_for('home') }}">Home</a>
+            <a href="{{ url_for('register') }}">Register Worker</a>
+            <a href="{{ url_for('health_record') }}">Health Record</a>
+            <a href="{{ url_for('search') }}">Search</a>
+            <a href="{{ url_for('dashboard') }}">Dashboard</a>
+            <a href="{{ url_for('about') }}">About</a>
+        </nav>
+    </header>
+
+
+    <main>
+
+        <section class="hero">
+
+            <h1>Digital Health Record Management System</h1>
+
+            <h3>For Migrant Workers in Kerala</h3>
+
+            <p>
+                A simple and accessible platform designed to manage
+                healthcare information of migrant workers and provide
+                better access to their medical records.
+            </p>
+
+            <div class="hero-buttons">
+                <a href="{{ url_for('register')}}" class="primary-btn">
+                    Register Worker
+                </a>
+
+                <a href="{{ url_for('search')}}" class="secondary-btn">
+                    Search Health Record
+                </a>
+            </div>
+
+        </section>
+
+
+        <section class="features">
+
+            <h2>Our Services</h2>
+
+            <div class="feature-container">
+
+                <div class="feature-card">
+                    <h3>Worker Registration</h3>
+                    <p>
+                        Register migrant workers and maintain their
+                        basic personal and healthcare information.
+                    </p>
+                </div>
+
+                <div class="feature-card">
+                    <h3>Digital Health Records</h3>
+                    <p>
+                        Maintain medical history, diagnosis,
+                        treatments and other important health details.
+                    </p>
+                </div>
+
+                <div class="feature-card">
+                    <h3>Quick Search</h3>
+                    <p>
+                        Quickly find registered workers and access
+                        their health information.
+                    </p>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <section class="sdg">
+
+            <h2>Supporting Sustainable Development Goal 3</h2>
+
+            <p>
+                This project supports SDG 3: Good Health and Well-being
+                by improving access to organized healthcare information
+                for migrant workers.
+            </p>
+
+        </section>
+
+    </main>
+
+
+    <footer>
+        <p>
+            Digital Health Record Management System |
+            Field Project
+        </p>
+    </footer>
+
+</body>
+
+</html>
+
+

@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Search Health Record</title>
+
+    <link rel="stylesheet" href="{{ url_for('static',filename='style.css')}}">
+
+</head>
+
+<body>
+
+    <header>
+        <h2>HealthRecord</h2>
+
+        <nav>
+            <a href="{{ url_for('home') }}">Home</a>
+            <a href="{{ url_for('register') }}">Register Worker</a>
+            <a href="{{ url_for('health_record') }}">Health Record</a>
+            <a href="{{ url_for('search') }}">Search</a>
+            <a href="{{ url_for('dashboard') }}">Dashboard</a>
+            <a href="{{ url_for('about') }}">About</a>
+        </nav>
+    </header>
+
+
+    <main class="search-page">
+
+        <div class="search-container">
+
+            <h1>Search Health Record</h1>
+
+            <p>
+                Enter the Worker ID to view the health record.
+            </p>
+            {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+        {% for category, message in messages %}
+            <div class="alert {{ category }}">
+                {{ message }}
+            </div>
+        {% endfor %}
+    {% endif %}
+{% endwith %}
+
+
+            <form method="POST" action="{{ url_for('search') }}">
+    <div class="search-box">
+
+        <input
+            type="text"
+            name="worker_id"
+            placeholder="Enter Worker ID"
+            required
+        >
+
+        <button type="submit">
+            Search
+        </button>
+
+    </div>
+</form>
+
+
+            {% if worker %}
+
+<div id="recordResult" class="record-card">
+
+    <h2>Worker Information</h2>
+
+    <div class="record-grid">
+
+        <p><strong>Worker ID:</strong> {{ worker["worker_id"] }}</p>
+
+        <p><strong>Name:</strong> {{ worker["full_name"] }}</p>
+
+        <p><strong>Age:</strong> {{ worker["age"] }}</p>
+
+        <p><strong>Gender:</strong> {{ worker["gender"] }}</p>
+
+        <p><strong>Blood Group:</strong> {{ worker["blood_group"] }}</p>
+
+        <p><strong>Native State:</strong> {{ worker["native_state"] }}</p>
+
+        <p><strong>Current Location:</strong> {{ worker["current_location"] }}</p>
+
+        <p><strong>Occupation:</strong> {{ worker["occupation"] }}</p>
+
+        <p><strong>Phone:</strong> {{ worker["phone"] }}</p>
+
+        <p><strong>Emergency Contact:</strong> {{ worker["emergency_contact"] }}</p>
+
+        <p><strong>Address:</strong> {{ worker["address"] }}</p>
+
+    </div>
+
+</div>
+
+{% endif %}
+{% if worker %}
+
+    <h2 class="medical-title">Medical Records</h2>
+
+    {% if medical_records %}
+
+        <table>
+            <tr>
+                <th>Visit Date</th>
+                <th>Condition</th>
+                <th>Diagnosis</th>
+                <th>Treatment</th>
+                <th>Doctor</th>
+            </tr>
+
+            {% for record in medical_records %}
+            <tr>
+                <td>{{ record["visit_date"] }}</td>
+                <td>{{ record["condition"] }}</td>
+                <td>{{ record["diagnosis"] }}</td>
+                <td>{{ record["treatment"] }}</td>
+                <td>{{ record["doctor_name"] }}</td>
+            </tr>
+            {% endfor %}
+
+        </table>
+
+    {% else %}
+
+        <p>No medical records found for this worker.</p>
+
+    {% endif %}
+
+{% endif %}
+
+    <footer>
+        <p>
+            Digital Health Record Management System |
+            Field Project
+        </p>
+    </footer>
+
+
+    
+
+</body>
+
+</html>
+

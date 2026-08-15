@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>About - Digital Health Record System</title>
+
+    <link rel="stylesheet" href="{{ url_for('static',filename='style.css')}}">
+
+</head>
+
+<body>
+
+    <header>
+        <h2>HealthRecord</h2>
+
+        <nav>
+            <a href="{{ url_for('home') }}">Home</a>
+            <a href="{{ url_for('register') }}">Register Worker</a>
+            <a href="{{ url_for('health_record') }}">Health Record</a>
+            <a href="{{ url_for('search') }}">Search</a>
+            <a href="{{ url_for('dashboard') }}">Dashboard</a>
+            <a href="{{ url_for('about') }}">About</a>
+        </nav>
+    </header>
+
+
+    <main class="about-page">
+
+        <section class="about-intro">
+
+            <h1>About the Project</h1>
+
+            <p>
+                The Digital Health Record Management System is designed
+                to help maintain organized and accessible healthcare
+                information for migrant workers in Kerala.
+            </p>
+
+        </section>
+
+
+        <section class="about-section">
+
+            <h2>The Problem</h2>
+
+            <p>
+                Migrant workers may move between different locations for
+                employment and may receive treatment from different
+                healthcare facilities. Maintaining their medical
+                information in an organized digital form can make it
+                easier to access previous health records when required.
+            </p>
+
+        </section>
+
+
+        <section class="about-section">
+
+            <h2>Project Objectives</h2>
+
+            <div class="objective-grid">
+
+                <div class="objective-card">
+                    <h3>Digital Records</h3>
+                    <p>
+                        Maintain organized digital health information
+                        for registered migrant workers.
+                    </p>
+                </div>
+
+                <div class="objective-card">
+                    <h3>Easy Access</h3>
+                    <p>
+                        Make it easier to search and access a worker's
+                        basic and medical information.
+                    </p>
+                </div>
+
+                <div class="objective-card">
+                    <h3>Continuity of Care</h3>
+                    <p>
+                        Help healthcare providers understand previous
+                        medical visits and treatments.
+                    </p>
+                </div>
+
+                <div class="objective-card">
+                    <h3>Better Organization</h3>
+                    <p>
+                        Reduce dependence on scattered or paper-based
+                        medical information.
+                    </p>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <section class="about-section">
+
+            <h2>Key Features</h2>
+
+            <ul class="feature-list">
+                <li>Migrant worker registration</li>
+                <li>Digital health record entry</li>
+                <li>Worker ID based health record search</li>
+                <li>Health information dashboard</li>
+                <li>Medical visit and treatment history</li>
+                <li>Simple and accessible user interface</li>
+            </ul>
+
+        </section>
+
+
+        <section class="sdg-about">
+
+            <div class="sdg-number">
+                <span>SDG</span>
+                <strong>3</strong>
+            </div>
+
+            <div class="sdg-content">
+
+                <h2>
+                    Good Health and Well-being
+                </h2>
+
+                <p>
+                    Sustainable Development Goal 3 aims to ensure
+                    healthy lives and promote well-being for people
+                    of all ages.
+                </p>
+
+                <p>
+                    This project is aligned with SDG 3 by supporting
+                    better organization and accessibility of health
+                    information for migrant workers.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <section class="project-note">
+
+            <h2>Project Scope</h2>
+
+            <p>
+                This front-end provides the user interface for the
+                Digital Health Record Management System. The forms,
+                search functionality and dashboard can be connected
+                to a backend and database to create a complete
+                healthcare record management application.
+            </p>
+
+        </section>
+
+    </main>
+
+
+    <footer>
+        <p>
+            Digital Health Record Management System |
+            Field Project
+        </p>
+    </footer>
+
+</body>
+
+</html>
+
+
+

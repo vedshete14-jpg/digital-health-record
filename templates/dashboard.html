@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Dashboard</title>
+
+    <link rel="stylesheet" href="{{ url_for('static',filename='style.css')}}">
+
+</head>
+
+<body>
+
+    <header>
+        <h2>HealthRecord</h2>
+
+        <nav>
+            
+            <a href="{{ url_for('home') }}">Home</a>
+            <a href="{{ url_for('register') }}">Register Worker</a>
+            <a href="{{ url_for('health_record') }}">Health Record</a>
+            <a href="{{ url_for('search') }}">Search</a>
+            <a href="{{ url_for('dashboard') }}">Dashboard</a>
+            <a href="{{ url_for('about') }}">About</a>
+        </nav>
+    </header>
+
+
+    <main class="dashboard-page">
+
+        <div class="dashboard-container">
+
+            <div class="dashboard-heading">
+                <h1>Health Dashboard</h1>
+
+                <p>
+                    Overview of migrant worker health records.
+                </p>
+            </div>
+
+
+            <section class="stats-grid">
+
+                <div class="stat-card">
+                    <h3>Total Workers</h3>
+                    <p>{{total_workers}}</p>
+                    <span>Registered workers</span>
+                </div>
+
+                <div class="stat-card">
+                    <h3>Health Records</h3>
+                    <p>{{total_records}}</p>
+                    <span>Total medical records</span>
+                </div>
+
+                <div class="stat-card">
+                    <h3>Today's Visits</h3>
+                    <p>{{today_visits}}</p>
+                    <span>Worker consultations</span>
+                </div>
+
+                <div class="stat-card">
+                    <h3>Locations Covered</h3>
+                    <p>{{locations_covered}}</p>
+                    <span>Areas across Kerala</span>
+                </div>
+
+            </section>
+
+
+            <section class="dashboard-section">
+
+                <div class="section-header">
+                    <h2>Quick Actions</h2>
+                </div>
+
+                <div class="quick-actions">
+
+                    <a href="{{url_for('register')}}" class="action-card">
+                        <h3>Register Worker</h3>
+
+                        <p>
+                            Add a new migrant worker to the system.
+                        </p>
+                    </a>
+
+                    <a href="{{url_for('health_record')}}" class="action-card">
+                        <h3>Add Health Record</h3>
+
+                        <p>
+                            Add new medical information for a worker.
+                        </p>
+                    </a>
+
+                    <a href="{{url_for('search')}}" class="action-card">
+                        <h3>Search Worker</h3>
+
+                        <p>
+                            Find a worker using their unique Worker ID.
+                        </p>
+                    </a>
+
+                </div>
+
+            </section>
+
+
+            <section class="dashboard-section">
+
+                <div class="section-header">
+                    <h2>Recent Health Records</h2>
+                </div>
+
+                <div class="table-container">
+
+                    <table>
+                        <tr>
+                            <th>Worker ID</th>
+                            <th>Name</th>
+                            <th>Visit Date</th>
+                            <th>Condition</th>
+                            <th>Location</th>
+                        </tr>
+                        {% for record in recent_records %}
+<tr>
+    <td>{{ record["worker_id"] }}</td>
+    <td>{{ record["full_name"] }}</td>
+    <td>{{ record["visit_date"] }}</td>
+    <td>{{ record["condition"] }}</td>
+    <td>{{ record["current_location"] }}</td>
+</tr>
+{% endfor %}
+                    </table>
+
+                </div>
+
+            </section>
+
+        </div>
+
+    </main>
+
+
+    <footer>
+        <p>
+            Digital Health Record Management System |
+            Field Project
+        </p>
+    </footer>
+
+</body>
+
+</html>
+

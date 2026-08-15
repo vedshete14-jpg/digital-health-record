@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Add Health Record</title>
+
+    <link rel="stylesheet" href="{{ url_for('static',filename='style.css')}}">
+
+</head>
+
+<body>
+
+    <header>
+        <h2>HealthRecord</h2>
+
+        <nav>
+            <a href="{{ url_for('home') }}">Home</a>
+            <a href="{{ url_for('register') }}">Register Worker</a>
+            <a href="{{ url_for('health_record') }}">Health Record</a>
+            <a href="{{ url_for('search') }}">Search</a>
+            <a href="{{ url_for('dashboard') }}">Dashboard</a>
+            <a href="{{ url_for('about') }}">About</a>
+        </nav>
+    </header>
+
+    <main class="form-page">
+
+        <div class="form-container">
+
+            <h1>Add Health Record</h1>
+
+            <p class="form-description">
+                Enter the medical details of the registered worker.
+            </p>
+{% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+        {% for category, message in messages %}
+            <div class="flash-message {{ category }}">
+                {{ message }}
+            </div>
+        {% endfor %}
+    {% endif %}
+{% endwith %}
+            <form method="POST"
+            action="{{url_for('health_record')}}">
+
+                <div class="form-grid">
+
+                    <div class="form-group">
+                        <label for="worker-id">Worker ID</label>
+
+                        <input
+                            type="text"
+                            id="worker-id"
+                            name="worker_id"
+                            placeholder="Enter worker ID"
+                            required
+                        >
+                    </div>
+
+                    <div class="form-group">
+                        <label for="visit-date">Visit Date</label>
+
+                        <input
+                            type="date"
+                            id="visit-date"
+                            name="visit_date"
+                            required
+                        >
+                    </div>
+
+                    <div class="form-group">
+                        <label for="doctor-name">Doctor Name</label>
+
+                        <input
+                            type="text"
+                            id="doctor-name"
+                            name="doctor_name"
+                            placeholder="Enter doctor name"
+                        >
+                    </div>
+
+                    <div class="form-group">
+                        <label for="hospital-name">Hospital / Clinic</label>
+
+                        <input
+                            type="text"
+                            id="hospital-name"
+                            name="hospital_name"
+                            placeholder="Enter hospital or clinic name"
+                        >
+                    </div>
+
+                    <div class="form-group">
+                        <label for="blood-pressure">Blood Pressure</label>
+
+                        <input
+                            type="text"
+                            id="blood-pressure"
+                            name="blood_pressure"
+                            placeholder="Example: 120/80"
+                        >
+                    </div>
+
+                    <div class="form-group">
+                        <label for="weight">Weight</label>
+
+                        <input
+                            type="number"
+                            id="weight"
+                            name="weight"
+                            placeholder="Enter weight in kg"
+                        >
+                    </div>
+
+                    <div class="form-group">
+                        <label for="temperature">Temperature</label>
+
+                        <input
+                            type="number"
+                            id="temperature"
+                            name="temperature"
+                            placeholder="Example: 98.6"
+                            step="0.1"
+                        >
+                    </div>
+
+                    <div class="form-group">
+                        <label for="condition">Health Condition</label>
+
+                        <select id="condition" name="condition">
+                            <option value="">Select condition</option>
+                            <option>General Check-up</option>
+                            <option>Fever</option>
+                            <option>Injury</option>
+                            <option>Respiratory Problem</option>
+                            <option>Stomach Problem</option>
+                            <option>Skin Problem</option>
+                            <option>Other</option>
+                        </select>
+                    </div>
+
+                </div>
+
+                <div class="form-group full-width">
+                    <label for="symptoms">Symptoms</label>
+
+                    <textarea
+                        id="symptoms"
+                        name="symptoms"
+                        rows="3"
+                        placeholder="Enter symptoms"
+                    ></textarea>
+                </div>
+
+                <div class="form-group full-width">
+                    <label for="diagnosis">Diagnosis</label>
+
+                    <textarea
+                        id="diagnosis"
+                        name="diagnosis"
+                        rows="3"
+                        placeholder="Enter diagnosis"
+                    ></textarea>
+                </div>
+
+                <div class="form-group full-width">
+                    <label for="medicines">Medicines / Treatment</label>
+
+                    <textarea
+                        id="medicines"
+                        name="medicines"
+                        rows="3"
+                        placeholder="Enter medicines or treatment details"
+                    ></textarea>
+                </div>
+
+                <div class="form-group full-width">
+                    <label for="allergies">Known Allergies</label>
+
+                    <textarea
+                        id="allergies"
+                        name="allergies"
+                        rows="2"
+                        placeholder="Enter allergies, if any"
+                    ></textarea>
+                </div>
+
+                <button type="submit" class="submit-btn">
+                    Add Health Record
+                </button>
+
+            </form>
+
+        </div>
+
+    </main>
+
+    <footer>
+        <p>
+            Digital Health Record Management System |
+            Field Project
+        </p>
+    </footer>
+
+</body>
+
+</html>
+
+
